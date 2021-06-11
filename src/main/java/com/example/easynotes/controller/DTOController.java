@@ -15,6 +15,12 @@ public class DTOController {
     @Autowired
     private DTOService dtoService;
 
+
+    // Я пытался сделать здесь первый таск, идея была такая, чтобы дать всем моделькам пустой интерфейс и
+    // вернуть просто список объектов, различных типов, но имплементящих один интерфейс. По итогу получилось
+    // выводить Студентов и Группы, но с учителями возникли непонятные проблемы. Потом может быть разберусь.
+    // Но как итог, получилось выводить в json, список состоящий из Студентов и Групп, хотя они разного типа и с полями
+
     @GetMapping("/student-name/dataItem/{studentName}")
     public List<DataItem> findStudentInfoByStudentName1(@PathVariable String studentName) {
         return dtoService.findStudentInfoByName1(studentName);
@@ -39,6 +45,7 @@ public class DTOController {
 //			  ...
 //        }
 //    }
+//    Я тут создал класс StudentInfo для того чтобы вывести в таком же порядке как выше, в задании. В след таске тоже.
     @GetMapping("/student-name/{studentName}")
     public StudentInfo findStudentInfoByStudentName(@PathVariable String studentName) {
         return dtoService.findStudentInfoByName(studentName);
