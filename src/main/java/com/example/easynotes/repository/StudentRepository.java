@@ -3,6 +3,7 @@ package com.example.easynotes.repository;
 import com.example.easynotes.DTO.StudentDTO;
 import com.example.easynotes.model.Group;
 import com.example.easynotes.model.Student;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

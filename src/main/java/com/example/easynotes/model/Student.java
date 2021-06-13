@@ -1,14 +1,10 @@
 package com.example.easynotes.model;
 
 import com.example.easynotes.DTO.DataItem;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 @Data
 @Entity
