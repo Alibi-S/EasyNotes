@@ -15,58 +15,29 @@ import java.util.Optional;
 @RequestMapping("/students")
 public class StudentController {
 
-//    @Autowired
-//    private StudentService studentService;
-//
-
-    private StudentMapper studentMapper; // TODO Не забыть перенести все в Сервис
-
-    public StudentController(StudentMapper studentMapper) {
-        this.studentMapper = studentMapper;
-    }
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("")
     public List<Student> findAllStudents() {
-        //return studentService.findAllStudents();
-        return studentMapper.findAll();
+        return studentService.findAllStudents();
+        //return studentMapper.findAll();
     }
     @PostMapping("/create")
     void insert(@RequestBody Student student){
-        studentMapper.insert(student);
+        //studentMapper.insert(student);
+        studentService.insert(student);
     }
-//
-//    @GetMapping("/{id}")
-//    public Optional<Student> findStudentById(@PathVariable Long id) {
-//        return studentService.findStudentById(id);
-//    }
-//
-//    @GetMapping("/name/{name}")
-//    public List<Student> findByName(@PathVariable String name) {
-//        return studentService.findByName(name);
-//    }
-//
-//    @GetMapping("/email/{email}")
-//    public Student findByEmail(@PathVariable String email) {
-//        return studentService.findByEmail(email);
-//    }
-//
-//    @GetMapping("/group-name/{groupName}")
-//    public List<StudentDTO> findByGroupName(@PathVariable String groupName) {
-//        return studentService.findByGroupName(groupName);
-//    }
-//
-//    @PostMapping("/create")
-//    public void createStudent(@RequestBody Student student) {
-//        studentService.createStudent(student);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public void updateStudent(@RequestBody Student student, @PathVariable Long id) {
-//        studentService.updateStudent(student, id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteStudent(@PathVariable Long id) {
-//        studentService.deleteStudentById(id);
-//    }
+
+    @PostMapping("/update")
+    void update(@RequestBody Student student){
+        //studentMapper.update(student);
+        studentService.update(student);
+    }
+
+    @PostMapping("/delete/{id}")
+    void delete(@PathVariable Long id){
+        //studentMapper.delete(id);
+        studentService.delete(id);
+    }
 }
