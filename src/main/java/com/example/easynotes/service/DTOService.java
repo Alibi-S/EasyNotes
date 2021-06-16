@@ -132,13 +132,16 @@ public class DTOService {
         List<StudentDTO> studentDTOS = studentRepository.findStudentsByStudentName(studentName);
         List<Group> groups = new ArrayList<>();
         List<Long> groupIds = new ArrayList<>();
+
         for (StudentDTO s: studentDTOS) {
             Student student = studentRepository.getById(s.getId());
             groups.add(student.getGroup());
             groupIds.add(student.getGroup().getId());
         }
+
         List<TeacherDTO> teacherDTOS = new ArrayList<>(); //teacherRepository.findTeacherDTOSByGroupIds(groups);
         List<Teacher> teachers = teacherRepository.findTeachersByGroupIds(groupIds);
+
         for(Teacher t: teachers){
             TeacherDTO teacherDTO = new TeacherDTO(t.getId(), t.getName(), t.getEmail());
             teacherDTOS.add(teacherDTO);

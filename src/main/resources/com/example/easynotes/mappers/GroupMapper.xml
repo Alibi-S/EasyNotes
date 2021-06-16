@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.easynotes.mappers.GroupMapper">
+
+    <resultMap id="GroupResultMap" type="group">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="created_date" property="createdDate" />
+    </resultMap>
+
+    <select id="findAllGroups" resultMap="GroupResultMap" >
+        select * from groups;
+    </select>
+
+
+<!--    <select id="findGroupById" resultMap="GroupResultMap">-->
+<!--        select * from groups WHERE id=#{id}-->
+<!--    </select>-->
+
+<!--    <insert id="insertGroup" parameterType="com.example.easynotes.model.Group" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into groups (name, created_date) values(#{name},#{createdDate})-->
+<!--    </insert>-->
+</mapper>

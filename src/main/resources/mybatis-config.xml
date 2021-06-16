@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+
+
+    <typeAliases>
+        <typeAlias type="com.example.easynotes.model.Student" alias="student" />
+        <typeAlias type="com.example.easynotes.model.Group" alias="group" />
+        <typeAlias type="com.example.easynotes.model.Teacher" alias="teacher" />
+        <typeAlias type="com.example.easynotes.model.Note" alias="note" />
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://localhost/notes_app"/>
+                <property name="username" value="postgres"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper resource="com/example/easynotes/mappers/GroupMapper.xml"/>
+    </mappers>
+
+
+<!--    -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--    <typeAliases>-->
+<!--        <package name="com.example.easynotes.model"/>-->
+<!--        <package name="com.example.easynotes.DTO"/>-->
+<!--    </typeAliases>-->
+<!--    <typeHandlers>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.InstantTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.OffsetDateTimeTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.OffsetTimeTypeHandler"/>-->
+<!--        <typeHandler handler="org.apache.ibatis.type.ZonedDateTimeTypeHandler"/>-->
+<!--    </typeHandlers>-->
+<!--    <mappers/>-->
+</configuration>
