@@ -14,6 +14,17 @@
         select * from groups;
     </select>
 
+    <insert id="createGroup" useGeneratedKeys="true" >
+        insert into groups(name, created_date) values(#{name}, #{createdDate});
+    </insert>
+
+    <update id="updateGroup">
+        update groups set name = #{name} where id = #{id};
+    </update>
+
+    <delete id="deleteGroup">
+        delete from groups where id = #{id};
+    </delete>
 
 <!--    <select id="findGroupById" resultMap="GroupResultMap">-->
 <!--        select * from groups WHERE id=#{id}-->

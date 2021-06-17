@@ -5,6 +5,8 @@ import com.example.easynotes.mappers.GroupMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -61,6 +63,18 @@ public class GroupService {
 
     public List<Group> findAllGroups() {
         return groupMapper.findAllGroups();
+    }
+
+    public void createGroup(Group group) {
+        groupMapper.createGroup( group.getName(), new Timestamp( new Date().getTime()));
+    }
+
+    public void updateGroup(Group group) {
+        groupMapper.updateGroup(group.getId(), group.getName());
+    }
+
+    public void deleteGroup(Long id) {
+        groupMapper.deleteGroup(id);
     }
 
 }

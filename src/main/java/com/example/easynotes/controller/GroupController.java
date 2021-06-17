@@ -21,6 +21,22 @@ public class GroupController {
         return groupService.findAllGroups();
     }
 
+    @PostMapping("/create")
+    public void createGroup(@RequestBody Group group) {
+        groupService.createGroup(group);
+    }
+
+    @PostMapping("/update")
+    public void updateGroup(@RequestBody Group group) {
+        groupService.updateGroup(group);
+    }
+
+    @PostMapping("/delete/{id}")
+    public void deleteGroup(@PathVariable Long id) {
+        groupService.deleteGroup(id);
+    }
+
+
 //    @GetMapping("/{id}")
 //    public Optional<Group> findGroupById(@PathVariable Long id) {
 //        return groupService.findGroupById(id);

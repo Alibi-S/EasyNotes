@@ -57,4 +57,13 @@ public class Group implements DataItem {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createdDate=" + createdDate +
+                '}';
+    }
 }
