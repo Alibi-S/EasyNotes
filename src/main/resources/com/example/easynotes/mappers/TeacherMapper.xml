@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.easynotes.mappers.TeacherMapper">
+
+    <resultMap id="TeacherResultMap" type="teacher">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="email" property="email" />
+<!--        <result column="group_id" property="groups" />-->
+
+        <collection  property="groups"  ofType="group">
+            <id column="gid" property="id" />
+            <result column="gname" property="name" />
+            <result column="gdate" property="createdDate" />
+        </collection>
+    </resultMap>
+
+    <select id="findAllTeachers" resultMap="TeacherResultMap" >
+        select
+            t.id, t.name, t.email, g.id as gid, g.name as gname, g.created_date as gdate
+        from
+            teachers t
+        left join
+            lessons l
+        on
+            t.id = l.teacher_id
+        inner join
+            groups g
+        on
+            g.id = l.group_id;
+    </select>
+
+    <insert id="createTeacher" useGeneratedKeys="true" >
+        insert into teachers(name, email) values(#{name}, #{email});
+    </insert>
+
+<!--    <update id="updateStudent">-->
+<!--        update students set name = #{name}, email = #{email}, group_id = #{group.id} where id = #{id};-->
+<!--    </update>-->
+
+<!--    <delete id="deleteStudent">-->
+<!--        delete from students where id = #{id};-->
+<!--    </delete>-->
+
+    <!--    <select id="findGroupById" resultMap="GroupResultMap">-->
+    <!--        select * from groups WHERE id=#{id}-->
+    <!--    </select>-->
+
+    <!--    <insert id="insertGroup" parameterType="com.example.easynotes.model.Group" useGeneratedKeys="true" keyProperty="id">-->
+    <!--        insert into groups (name, created_date) values(#{name},#{createdDate})-->
+    <!--    </insert>-->
+</mapper>
