@@ -16,9 +16,9 @@ public interface GroupMapper {
     //Group findByCreatedDate(Date date);
     //Group findByName(String name);
 
-    public List<Group> findAllGroups();
+    List<Group> findAllGroups();
 
-    public void createGroup(@Param("name") String name, @Param("createdDate") Timestamp createdDate);
+    void createGroup(@Param("name") String name, @Param("createdDate") Timestamp createdDate);
 
     void updateGroup(@Param("id") Long id, @Param("name") String name);
 

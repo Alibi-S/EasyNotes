@@ -26,12 +26,12 @@ public class GroupController {
         groupService.createGroup(group);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public void updateGroup(@RequestBody Group group) {
         groupService.updateGroup(group);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteGroup(@PathVariable Long id) {
         groupService.deleteGroup(id);
     }

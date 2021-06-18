@@ -1,14 +1,14 @@
 package com.example.easynotes.mappers;
 
-//import com.example.easynotes.model.Student;
-//import org.apache.ibatis.annotations.*;
-//import org.springframework.stereotype.Repository;
-//
-//import java.util.List;
-//
-//@Mapper
-//@Repository
-//public interface StudentMapper {
+import com.example.easynotes.model.Student;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Mapper
+@Repository
+public interface StudentMapper {
 //    @Select("Select * from students;")
 //    List<Student> findAll();
 //
@@ -20,4 +20,11 @@ package com.example.easynotes.mappers;
 //
 //    @Delete("Delete from students where id=#{id}")
 //    void delete(Long id);
-//}
+    List<Student> findAllStudents();
+
+    void createStudent(Student student);
+
+    void updateStudent(Student student);
+
+    void deleteStudent(Long id);
+}
