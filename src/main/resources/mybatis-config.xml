@@ -16,6 +16,8 @@
         <typeAlias type="com.example.easynotes.model.Group" alias="group" />
         <typeAlias type="com.example.easynotes.model.Teacher" alias="teacher" />
         <typeAlias type="com.example.easynotes.model.Note" alias="note" />
+        <typeAlias type="com.example.easynotes.DTO.StudentDTO" alias="studentDto" />
+        <typeAlias type="com.example.easynotes.DTO.TeacherDTO" alias="teachersDto" />
     </typeAliases>
     <environments default="development">
         <environment id="development">

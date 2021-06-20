@@ -12,5 +12,4 @@ public class GroupInfo {
     private List<Group> groups;
     private List<TeacherDTO> teachers;
     private List<StudentDTO> students;
-
 }

@@ -1,5 +1,6 @@
 package com.example.easynotes.mappers;
 
+import com.example.easynotes.DTO.StudentDTO;
 import com.example.easynotes.model.Student;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -27,4 +28,6 @@ public interface StudentMapper {
     void updateStudent(Student student);
 
     void deleteStudent(Long id);
+
+    List<StudentDTO> findStudentsDtoByName(String studentName);
 }

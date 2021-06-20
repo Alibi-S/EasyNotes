@@ -14,6 +14,19 @@
         select * from groups;
     </select>
 
+    <select id="findGroupByStudents" resultMap="GroupResultMap" >
+        select
+            *
+        from
+            groups
+        where
+            id
+        in
+            <foreach collection="list" index="idx" item="student" open="(" separator="," close=")">
+                #{student.groupId}
+            </foreach> ;
+    </select>
+
     <insert id="createGroup" useGeneratedKeys="true" >
         insert into groups(name, created_date) values(#{name}, #{createdDate});
     </insert>

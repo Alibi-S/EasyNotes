@@ -11,8 +11,19 @@
         <result column="group_id" property="group.id" />
    </resultMap>
 
+    <resultMap id="StudentDtoResultMap" type="studentDto">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="email" property="email" />
+        <result column="group_id" property="groupId" />
+    </resultMap>
+
     <select id="findAllStudents" resultMap="StudentResultMap" >
         select * from students;
+    </select>
+
+    <select id="findStudentsDtoByName" resultMap="StudentDtoResultMap" >
+        select * from students where name like #{studentName};
     </select>
 
     <insert id="createStudent" useGeneratedKeys="true" >

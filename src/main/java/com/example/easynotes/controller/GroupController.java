@@ -35,36 +35,4 @@ public class GroupController {
     public void deleteGroup(@PathVariable Long id) {
         groupService.deleteGroup(id);
     }
-
-
-//    @GetMapping("/{id}")
-//    public Optional<Group> findGroupById(@PathVariable Long id) {
-//        return groupService.findGroupById(id);
-//    }
-//
-//    @GetMapping("/name/{name}")
-//    public Group findGroupByName(@PathVariable String name) {
-//        return groupService.findGroupByName(name);
-//    }
-//
-//    @GetMapping("/date/{date}")
-//    public Group findGroupByDate(@PathVariable Date date) {
-//        return groupService.findGroupByDate(date);
-//    }
-//
-//    @PostMapping("/create")
-//    public void createGroup(@RequestBody Group group) {
-//        groupService.createGroup(group);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public void updateGroup(@RequestBody Group group, @PathVariable Long id) {
-//        groupService.updateGroup(group, id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteGroup(@PathVariable Long id) {
-//        groupService.deleteGroup(id);
-//    }
-
 }

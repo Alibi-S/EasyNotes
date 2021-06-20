@@ -8,13 +8,18 @@
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="email" property="email" />
-<!--        <result column="group_id" property="groups" />-->
 
         <collection  property="groups"  ofType="group">
             <id column="gid" property="id" />
             <result column="gname" property="name" />
             <result column="gdate" property="createdDate" />
         </collection>
+    </resultMap>
+
+    <resultMap id="TeacherDTOResultMap" type="teachersDto">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="email" property="email" />
     </resultMap>
 
     <select id="findAllTeachers" resultMap="TeacherResultMap" >
@@ -32,17 +37,34 @@
             g.id = l.group_id;
     </select>
 
+    <select id="findTeachersDtoByGroups" resultMap="TeacherResultMap" >
+        select
+            *
+        from
+            teachers t
+        join
+            lessons l
+        on
+            t.id = l.teacher_id
+        where
+            l.group_id
+        in
+            <foreach collection="list" index="idx" item="group" open="(" separator="," close=")">
+                #{group.id}
+            </foreach> ;
+    </select>
+
     <insert id="createTeacher" useGeneratedKeys="true" >
         insert into teachers(name, email) values(#{name}, #{email});
     </insert>
 
-<!--    <update id="updateStudent">-->
-<!--        update students set name = #{name}, email = #{email}, group_id = #{group.id} where id = #{id};-->
-<!--    </update>-->
+    <update id="updateTeacher">
+        update teachers set name = #{name}, email = #{email} where id = #{id};
+    </update>
 
-<!--    <delete id="deleteStudent">-->
-<!--        delete from students where id = #{id};-->
-<!--    </delete>-->
+    <delete id="deleteTeacher">
+        delete from teachers where id = #{id};
+    </delete>
 
     <!--    <select id="findGroupById" resultMap="GroupResultMap">-->
     <!--        select * from groups WHERE id=#{id}-->

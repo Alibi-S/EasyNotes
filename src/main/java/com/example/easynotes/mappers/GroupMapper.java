@@ -1,5 +1,6 @@
 package com.example.easynotes.mappers;
 
+import com.example.easynotes.DTO.StudentDTO;
 import com.example.easynotes.model.Group;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,6 +24,8 @@ public interface GroupMapper {
     void updateGroup(@Param("id") Long id, @Param("name") String name);
 
     void deleteGroup(@Param("id") Long id);
+
+    List<Group> findGroupByStudents(List<StudentDTO> students);
 
 //    @Query(value = "SELECT * FROM groups g WHERE g.id in (:ids)", nativeQuery = true)
 //    List<Group> findGroupByIds(@Param("ids") List<Long> ids);

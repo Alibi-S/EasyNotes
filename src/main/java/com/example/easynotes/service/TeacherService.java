@@ -1,14 +1,11 @@
 package com.example.easynotes.service;
 
 import com.example.easynotes.mappers.TeacherMapper;
-import com.example.easynotes.model.Group;
 import com.example.easynotes.model.Teacher;
-import com.example.easynotes.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TeacherService {
@@ -21,6 +18,14 @@ public class TeacherService {
 
     public void createTeacher(Teacher teacher) {
         teacherMapper.createTeacher(teacher);
+    }
+
+    public void updateTeacher(Teacher teacher) {
+        teacherMapper.updateTeacher(teacher);
+    }
+
+    public void deleteTeacher(Long id) {
+        teacherMapper.deleteTeacher(id);
     }
 //    @Autowired
 //    private TeacherRepository teacherRepository;

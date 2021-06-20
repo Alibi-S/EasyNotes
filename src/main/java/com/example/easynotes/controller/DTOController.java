@@ -21,10 +21,10 @@ public class DTOController {
     // выводить Студентов и Группы, но с учителями возникли непонятные проблемы. Потом может быть разберусь.
     // Но как итог, получилось выводить в json, список состоящий из Студентов и Групп, хотя они разного типа и с полями
 
-    @GetMapping("/student-name/dataItem/{studentName}")
-    public List<DataItem> findStudentInfoByStudentName1(@PathVariable String studentName) {
-        return dtoService.findStudentInfoByName1(studentName);
-    }
+//    @GetMapping("/student-name/dataItem/{studentName}")
+//    public List<DataItem> findStudentInfoByStudentName1(@PathVariable String studentName) {
+//        return dtoService.findStudentInfoByName1(studentName);
+//    }
 
     // 1 TASK
 //    - Search student by name:
@@ -46,6 +46,7 @@ public class DTOController {
 //        }
 //    }
 //    Я тут создал класс StudentInfo для того чтобы вывести в таком же порядке как выше, в задании. В след таске тоже.
+
     @GetMapping("/student-name/{studentName}")
     public StudentInfo findStudentInfoByStudentName(@PathVariable String studentName) {
         return dtoService.findStudentInfoByName(studentName);
@@ -68,10 +69,10 @@ public class DTOController {
 //            name
 //        }
 //    }
-    @GetMapping("/group-info/student-name/{studentName}")
-    public GroupInfo findGroupInfoByStudentName(@PathVariable String studentName) {
-        return dtoService.findGroupInfoByStudentName(studentName);
-    }
+//    @GetMapping("/group-info/student-name/{studentName}")
+//    public GroupInfo findGroupInfoByStudentName(@PathVariable String studentName) {
+//        return dtoService.findGroupInfoByStudentName(studentName);
+//    }
 
     // 3 TASK
 //    - List by teacher name:
@@ -87,8 +88,8 @@ public class DTOController {
 //              }]
 //        }],
 //    }
-    @GetMapping("/group-info/teacher-name/{teacherName}")
-    public List<GroupDTO> findGroupInfoByTeacherName(@PathVariable String teacherName) {
-        return dtoService.findGroupInfoByTeacherName(teacherName);
-    }
+//    @GetMapping("/group-info/teacher-name/{teacherName}")
+//    public List<GroupDTO> findGroupInfoByTeacherName(@PathVariable String teacherName) {
+//        return dtoService.findGroupInfoByTeacherName(teacherName);
+//    }
 }
