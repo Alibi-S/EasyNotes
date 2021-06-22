@@ -6,11 +6,7 @@ import com.example.easynotes.mappers.GroupMapper;
 import com.example.easynotes.mappers.StudentMapper;
 import com.example.easynotes.mappers.TeacherMapper;
 import com.example.easynotes.model.Group;
-import com.example.easynotes.model.Student;
 import com.example.easynotes.model.Teacher;
-import com.example.easynotes.repository.GroupRepository;
-import com.example.easynotes.repository.StudentRepository;
-import com.example.easynotes.repository.TeacherRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -151,4 +147,24 @@ public class DTOService {
         return studentInfo;
     }
 
+    public GroupInfo findGroupInfoByStudentName(String studentName) {
+        List<StudentDTO> students = studentMapper.findStudentsDtoByName(studentName);
+        List<Group> groups = groupMapper.findGroupByStudents(students);
+        List<TeacherDTO> teachers = teacherMapper.findTeachersDtoByGroups(groups);
+        students = studentMapper.findStudentsDtoByGroups(groups);
+
+        GroupInfo groupInfo = new GroupInfo(groups, teachers, students);
+        return groupInfo;
+    }
+
+    public List<GroupDTO> findGroupInfoByTeacherName(String teacherName) {
+        List<Teacher> teachers = teacherMapper.findTeachersByName(teacherName);
+        List<GroupDTO> groupDTOS = groupMapper.findGroupsDtoByTeachers(teachers);
+
+        for(GroupDTO g: groupDTOS) {
+            g.setStudents(studentMapper.findStudentsDtoByGroupId(g.getId()));
+        }
+
+        return groupDTOS;
+    }
 }

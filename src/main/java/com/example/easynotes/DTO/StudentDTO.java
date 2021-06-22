@@ -21,5 +21,6 @@ public class StudentDTO extends Student {
         this.groupId = groupId;
     }
 
-
+    public StudentDTO() {
+    }
 }

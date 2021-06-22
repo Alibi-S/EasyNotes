@@ -69,10 +69,10 @@ public class DTOController {
 //            name
 //        }
 //    }
-//    @GetMapping("/group-info/student-name/{studentName}")
-//    public GroupInfo findGroupInfoByStudentName(@PathVariable String studentName) {
-//        return dtoService.findGroupInfoByStudentName(studentName);
-//    }
+    @GetMapping("/group-info/student-name/{studentName}")
+    public GroupInfo findGroupInfoByStudentName(@PathVariable String studentName) {
+        return dtoService.findGroupInfoByStudentName(studentName);
+    }
 
     // 3 TASK
 //    - List by teacher name:
@@ -88,8 +88,8 @@ public class DTOController {
 //              }]
 //        }],
 //    }
-//    @GetMapping("/group-info/teacher-name/{teacherName}")
-//    public List<GroupDTO> findGroupInfoByTeacherName(@PathVariable String teacherName) {
-//        return dtoService.findGroupInfoByTeacherName(teacherName);
-//    }
+    @GetMapping("/group-info/teacher-name/{teacherName}")
+    public List<GroupDTO> findGroupInfoByTeacherName(@PathVariable String teacherName) {
+        return dtoService.findGroupInfoByTeacherName(teacherName);
+    }
 }

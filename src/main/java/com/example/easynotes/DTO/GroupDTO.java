@@ -17,6 +17,10 @@ public class GroupDTO extends Group {
         this.students = students;
     }
 
+    public GroupDTO(Long id, @NotBlank String name, Date createdDate) {
+        super(id, name, createdDate);
+    }
+
     public GroupDTO(List<StudentDTO> students) {
         this.students = students;
     }

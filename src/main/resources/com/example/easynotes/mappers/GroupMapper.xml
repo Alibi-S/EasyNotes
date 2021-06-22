@@ -10,6 +10,13 @@
         <result column="created_date" property="createdDate" />
     </resultMap>
 
+    <resultMap id="GroupDTOResultMap" type="groupDto">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="created_date" property="createdDate" />
+
+    </resultMap>
+
     <select id="findAllGroups" resultMap="GroupResultMap" >
         select * from groups;
     </select>
@@ -25,6 +32,26 @@
             <foreach collection="list" index="idx" item="student" open="(" separator="," close=")">
                 #{student.groupId}
             </foreach> ;
+    </select>
+
+
+    <select id="findGroupsDtoByTeachers" resultMap="GroupDTOResultMap">
+        select
+            g.id as id,
+            g.name as name,
+            g.created_date as created_date
+        from
+            groups g
+        join
+            lessons l
+        on
+            l.group_id = g.id
+        where
+            l.teacher_id
+        in
+        <foreach collection="list" index="idx" item="teacher" open="(" separator="," close=")">
+            #{teacher.id}
+        </foreach> ;
     </select>
 
     <insert id="createGroup" useGeneratedKeys="true" >

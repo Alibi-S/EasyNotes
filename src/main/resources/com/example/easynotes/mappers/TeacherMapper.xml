@@ -54,6 +54,17 @@
             </foreach> ;
     </select>
 
+    <select id="findTeachersByName" resultMap="TeacherResultMap" >
+        select
+            *
+        from
+            teachers t
+        where
+            t.name
+        like
+            #{teacherName};
+    </select>
+
     <insert id="createTeacher" useGeneratedKeys="true" >
         insert into teachers(name, email) values(#{name}, #{email});
     </insert>

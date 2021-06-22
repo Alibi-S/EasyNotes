@@ -18,5 +18,7 @@ public interface TeacherMapper {
     void deleteTeacher(Long id);
 
     List<TeacherDTO> findTeachersDtoByGroups(List<Group> groups);
+
+    List<Teacher> findTeachersByName(String teacherName);
 }
 
